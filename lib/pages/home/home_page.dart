@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("HomePage")),
+      appBar: AppBar(title: const SelectableText("HomePage")),
       body: Consumer<HomeProvider>(
         builder: (context, provider, child) {
           if (provider.state == HomeStates.loading) {
@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
           }
           if (provider.state == HomeStates.fail) {
             return Center(
-              child: Text(
+              child: SelectableText(
                 provider.message,
                 style: const TextStyle(fontSize: 32),
               ),
@@ -61,7 +61,7 @@ class HomePage extends StatelessWidget {
                               width: 200,
                               height: 200,
                               alignment: Alignment.center,
-                              child: Text("$error"),
+                              child: SelectableText("$error"),
                             );
                           },
                         ),
@@ -71,7 +71,7 @@ class HomePage extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            SelectableText(
                               model.title,
                               style: const TextStyle(
                                 fontSize: 24,
@@ -79,7 +79,7 @@ class HomePage extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 12),
-                            Text(
+                            SelectableText(
                               model.body,
                               style: const TextStyle(fontSize: 24),
                             ),
@@ -93,7 +93,7 @@ class HomePage extends StatelessWidget {
             );
           }
           return Center(
-            child: Text(
+            child: SelectableText(
               provider.state.name,
               style: const TextStyle(fontSize: 32),
             ),
